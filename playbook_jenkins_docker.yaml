@@ -1,0 +1,13 @@
+---
+- name: run jenkins on docker
+  gather_facts: No
+  hosts: webservers
+
+  tasks:
+    - name: Jenkins Container
+      docker_container:
+        name: myjenkins
+        image: jenkins:latest
+        state: started
+        ports: 8080:8080
+      become: yes

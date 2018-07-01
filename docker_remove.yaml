@@ -1,0 +1,11 @@
+---
+- name: Remove docker
+  gather_facts: No
+  hosts: node2
+
+  tasks:
+    - name: Remove Docker
+      package:
+        name: docker*
+        state: absent
+      become: yes
